@@ -9,7 +9,9 @@
   </section>
   <TextImgSection v-for="(section, index) in textImgSections" :key="index" :propsSection="section"></TextImgSection>
   <AppSlider2></AppSlider2>
-
+  <section class="info-menu">
+    <TabsMenuSection :propsMenuVoices="menuInfoVoices"></TabsMenuSection>
+  </section>
 
 
 
@@ -24,8 +26,10 @@
 
 import AppHeader from './components/t1/AppHeader.vue'
 import AppSlider from './components/t1/AppSlider.vue'
-import TextImgSection from './components/t1/TextImgSection.vue'
 import AppSlider2 from './components/t1/AppSlider2.vue'
+import TextImgSection from './components/t1/TextImgSection.vue'
+import TabsMenuSection from './components/t1/TabsMenuSection.vue'
+
 
 
 
@@ -49,10 +53,56 @@ export default {
           imgOnRight: false
         }
       ],
-      showStickyEls: false
+      showStickyEls: false,
+      menuInfoVoices: [
+        {
+          name: 'What We Do',
+          title: 'Explore Our Courses',
+          text: 'Discover a wide range of courses designed to help you achieve your learning goals. Whether you want to advance your career or learn new skills, we have something for everyone.',
+          checkList: ['Access high-quality course materials online.', 'Learn from industry experts.', 'Earn certificates upon completion.', 'Flexible learning options.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-1.png'
+        },
+        {
+          name: 'Degree Programme',
+          title: 'Degree Programs',
+          text: 'Take your education to the next level with our comprehensive degree programs. We offer accredited programs in various fields to help you achieve your academic and career aspirations.',
+          checkList: ['Flexible online learning.', 'Dedicated support from advisors.', 'Gain valuable knowledge and skills.', 'Join a diverse community of learners.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-2.png'
+        },
+        {
+          name: 'Career Achievements',
+          title: 'Advance Your Career',
+          text: 'Invest in your future with our career-focused courses designed to enhance your skills and boost your employability. Stay competitive in today\'s job market with our industry-aligned curriculum.',
+          checkList: ['Specialized courses tailored to your career goals.', 'Hands-on projects and case studies.', 'Networking opportunities.', 'Job placement assistance and counseling services.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-3.png'
+        },
+        {
+          name: 'Personal Management',
+          title: 'Personal Development',
+          text: 'Invest in yourself and unlock your full potential with our personal development courses. Whether you want to improve your communication skills or enhance your leadership abilities, we have courses to help you grow personally and professionally.',
+          checkList: ['Gain self-awareness and build emotional intelligence.', 'Develop effective communication and interpersonal skills.', 'Learn strategies for stress management and work-life balance.', 'Achieve your personal and professional goals.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-4.png'
+        },
+        {
+          name: 'Steps to Success',
+          title: 'Start Your Learning Journey',
+          text: 'Embark on your learning journey with us and take the first step towards success. Our user-friendly platform and expert instructors make learning engaging and enjoyable. Start learning today and unlock a world of opportunities!',
+          checkList: ['Easy-to-use platform for seamless learning experience.', 'Engaging and interactive courses for effective learning.', 'Access course materials anytime, anywhere.', 'Join a supportive community of learners.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-5.png'
+        },
+        {
+          name: 'Knowledge Transfer',
+          title: 'Empower Yourself with Knowledge',
+          text: 'Knowledge is power, and we\'re here to empower you with the knowledge you need to succeed. Our courses cover a wide range of topics, from business and technology to arts and humanities. Start learning today and take control of your future!',
+          checkList: ['Expand your knowledge and skill set.', 'Stay updated with the latest trends and developments.', 'Access resources and tools to support your learning journey.', 'Join a global community of passionate learners.'],
+          iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-6.png'
+        }
+      ]
+
+
     }
   },
-  components: { AppHeader, AppSlider, TextImgSection, AppSlider2 },
+  components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection },
   methods: {
     scrollToTop() {
       window.scrollTo({
