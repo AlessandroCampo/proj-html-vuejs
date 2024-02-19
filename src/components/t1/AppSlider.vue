@@ -86,7 +86,7 @@ i.fa-chevron-left {
 
 
 .text-content {
-    @apply text-white text-center flex flex-col gap-8 w-1/2 bg-black bg-opacity-60 p-4 items-center
+    @apply text-white text-center flex flex-col gap-8 w-3/5 p-4 items-center rounded-xl
 }
 
 .text-content h1 {
