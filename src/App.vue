@@ -9,6 +9,15 @@
   </section>
   <TextImgSection v-for="(section, index) in textImgSections" :key="index" :propsSection="section"></TextImgSection>
   <AppSlider2></AppSlider2>
+
+
+
+
+
+  <div class="sticky-up" v-show="showStickyEls" @click="scrollToTop">
+    <i class="fa-solid fa-chevron-up"></i>
+    <span> TOP </span>
+  </div>
 </template>
 
 <script>
@@ -39,10 +48,29 @@ export default {
           imgPath: './src/assets/img/h5-img-2.jpg',
           imgOnRight: false
         }
-      ]
+      ],
+      showStickyEls: false
     }
   },
-  components: { AppHeader, AppSlider, TextImgSection, AppSlider2 }
+  components: { AppHeader, AppSlider, TextImgSection, AppSlider2 },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      const amount = 600
+      if (window.scrollY > amount) {
+        this.showStickyEls = true
+      } else {
+        this.showStickyEls = false
+      }
+    })
+  }
 }
 </script>
 
@@ -61,5 +89,9 @@ export default {
 
 section {
   @apply py-[var(--section-distance)]
+}
+
+.sticky-up {
+  @apply text-white bg-[var(--theme-blue)] flex flex-col sticky w-[50px] h-[50px] items-center justify-center font-bold bottom-0 left-full cursor-pointer
 }
 </style>

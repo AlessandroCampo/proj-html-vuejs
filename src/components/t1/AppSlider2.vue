@@ -52,11 +52,20 @@ export default {
                 }
             ],
             sliderPages: 3,
-            sliderPosition: 0
+            sliderPosition: 0,
+            autoScroll: setInterval(() => {
+                let fakeIndex = this.sliderPosition + 1
+                if (fakeIndex > 2) {
+                    fakeIndex = 0
+                }
+                this.scroll(fakeIndex)
+            }, 4000),
         }
     },
     methods: {
         scroll(index) {
+            // stop autoSlider on user input 
+            clearInterval(this.autoScroll)
             const slider = this.$refs.slider;
             let amount = slider.offsetWidth;
             // if the user clicks 2 position off current index, double scroll. If user clicks forward, scrolls right and viceversa
@@ -72,6 +81,16 @@ export default {
                 left: amount,
                 behavior: 'smooth'
             });
+            // reset autoscroll
+            setTimeout(() => {
+                this.autoScroll = setInterval(() => {
+                    let fakeIndex = this.sliderPosition + 1
+                    if (fakeIndex > 2) {
+                        fakeIndex = 0
+                    }
+                    this.scroll(fakeIndex)
+                }, 4000)
+            }, 4000)
         }
     }
 }
@@ -117,6 +136,6 @@ export default {
 }
 
 .dots {
-    @apply flex items-center gap-3 justify-center text-white text-sm mt-8
+    @apply flex items-center gap-3 justify-center text-white text-sm mt-8 cursor-pointer
 }
 </style>
