@@ -8,6 +8,7 @@
     </div>
   </section>
   <TextImgSection v-for="(section, index) in textImgSections" :key="index" :propsSection="section"></TextImgSection>
+  <AppSlider2></AppSlider2>
 </template>
 
 <script>
@@ -15,6 +16,7 @@
 import AppHeader from './components/t1/AppHeader.vue'
 import AppSlider from './components/t1/AppSlider.vue'
 import TextImgSection from './components/t1/TextImgSection.vue'
+import AppSlider2 from './components/t1/AppSlider2.vue'
 
 
 
@@ -40,7 +42,7 @@ export default {
       ]
     }
   },
-  components: { AppHeader, AppSlider, TextImgSection }
+  components: { AppHeader, AppSlider, TextImgSection, AppSlider2 }
 }
 </script>
 
