@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 .slider-container {
-    @apply relative h-5/6 flex items-center justify-center
+    @apply relative h-full flex items-center justify-center bg-cover
 }
 
 .slider-container>i {
