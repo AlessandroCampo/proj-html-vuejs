@@ -1,6 +1,7 @@
 <template>
-  <AppHeader />
-  <AppSlider />
+  <AppHeader :propArray="menu_voices"></AppHeader>
+  <HiddenHeader :propArray="menu_voices" :show="showStickyEls"></HiddenHeader>
+  <AppSlider></AppSlider>
   <section class="subj-container">
     <div class="subj-card" v-for="(sub, index) in subjects" :key="index">
       <img :src="`./src/assets/img/subj-icons/${sub}.png`" :alt="sub">
@@ -47,6 +48,7 @@
 <script>
 
 import AppHeader from './components/t1/AppHeader.vue'
+import HiddenHeader from './components/t1/HiddenHeader.vue'
 import AppSlider from './components/t1/AppSlider.vue'
 import AppSlider2 from './components/t1/AppSlider2.vue'
 import TextImgSection from './components/t1/TextImgSection.vue'
@@ -62,6 +64,7 @@ import AppFooter from './components/t1/AppFooter.vue'
 export default {
   data() {
     return {
+      menu_voices: ['HOME', 'COURSES', 'INSTRUCTORS', 'EVENTS', 'PAGES', 'ELEMENTS'],
       subjects: ["Languages", "Software", "Business", "Chemistry", "Science", "DIY&Craft"],
       textImgSections: [
         {
@@ -302,7 +305,7 @@ export default {
 
     }
   },
-  components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection, TitleParagraphCards, PricingTable, AppSponsors, AppFooter },
+  components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection, TitleParagraphCards, PricingTable, AppSponsors, AppFooter, HiddenHeader },
   methods: {
     scrollToTop() {
       window.scrollTo({
@@ -330,7 +333,11 @@ export default {
 }
 
 .subj-card {
-  @apply flex flex-col gap-4 w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl
+  @apply flex flex-col gap-4 w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer
+}
+
+.subj-card:hover img {
+  @apply transition-all translate-y-[-5px] duration-500
 }
 
 .subj-card img {

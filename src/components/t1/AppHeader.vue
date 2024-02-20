@@ -3,12 +3,7 @@
         <img src="../../assets/img/logo-light.png" alt="">
         <nav>
             <ul>
-                <li> Home </li>
-                <li> Courses </li>
-                <li> Instructors </li>
-                <li> events </li>
-                <li> pages </li>
-                <li> elements </li>
+                <li v-for="(voice, index) in propArray" :key=index> {{ voice }}</li>
                 <li>
                     <div class="icon-container">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -30,7 +25,8 @@ export default {
         return {
             cart_items: 0
         }
-    }
+    },
+    props: ['propArray']
 }
 </script>
 

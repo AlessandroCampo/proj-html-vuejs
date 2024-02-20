@@ -23,6 +23,9 @@
     @apply absolute top-[-30%] right-[-50%] bg-[var(--theme-blue)] text-[0.5em] rounded-full w-[15px] h-[15px] text-center flex items-center justify-center
 }
 
+
+
+
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
     width: 8px;

@@ -122,6 +122,10 @@ export default {
     @apply w-2/5 mb-3
 }
 
+img {
+    @apply cursor-pointer
+}
+
 .footer-element:first-child p {
     @apply w-3/4
 }
@@ -153,11 +157,11 @@ div.contact i {
 div.contact div:hover i,
 .course-title:hover,
 ul.support-list li:hover {
-    @apply transition ease-in text-[var(--theme-blue)] cursor-pointer
+    @apply text-[var(--theme-blue)] cursor-pointer transition-all duration-700
 }
 
 .course-teacher:hover {
-    @apply text-gray-600 cursor-pointer
+    @apply text-gray-600 cursor-pointer transition-all duration-700
 }
 
 hr {
@@ -177,7 +181,7 @@ hr {
 }
 
 
-.footer-bottom .socials .social-icons:hover {
-    @apply cursor-pointer text-[var(--theme-blue)]
+.footer-bottom .socials .social-icons i:hover {
+    @apply transition-all duration-500 cursor-pointer text-[var(--theme-blue)]
 }
 </style>
