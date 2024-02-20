@@ -12,6 +12,16 @@
   <section class="info-menu">
     <TabsMenuSection :propsMenuVoices="menuInfoVoices"></TabsMenuSection>
   </section>
+  <section class="cards-list">
+    <TitleParagraphCards :propTitle="'Popular Online Courses'"
+      :propSubTitle="' Unlock Your Potential: Explore Exciting Learning Opportunities Today!'" :propType="'Subjects'">
+    </TitleParagraphCards>
+  </section>
+  <section class="card-list">
+    <TitleParagraphCards :propTitle="'The Best Tutors in Town'"
+      :propSubTitle="'Meet our amazing tutors who will walk you trough this amazing journey '" :propType="'Teachers'">
+    </TitleParagraphCards>
+  </section>
 
 
 
@@ -29,6 +39,7 @@ import AppSlider from './components/t1/AppSlider.vue'
 import AppSlider2 from './components/t1/AppSlider2.vue'
 import TextImgSection from './components/t1/TextImgSection.vue'
 import TabsMenuSection from './components/t1/TabsMenuSection.vue'
+import TitleParagraphCards from './components/t1/TitleParagraphCards.vue'
 
 
 
@@ -102,7 +113,7 @@ export default {
 
     }
   },
-  components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection },
+  components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection, TitleParagraphCards },
   methods: {
     scrollToTop() {
       window.scrollTo({
