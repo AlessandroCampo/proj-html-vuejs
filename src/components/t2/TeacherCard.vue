@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .card {
-    @apply w-1/3 flex flex-col gap-3 items-center px-6
+    @apply flex flex-col gap-3 items-center px-6 w-[var(--width-oneThird-gap6)] shrink-0
 }
 
 .card img {

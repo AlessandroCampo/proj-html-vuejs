@@ -6,6 +6,7 @@
 :root {
     --theme-blue: #40c4ff;
     --section-distance: 3em;
+    --width-oneThird-gap6: calc((100% - 2 * 1.5em) / 3)
 }
 
 #app {
@@ -38,6 +39,11 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: #666;
     /* Scrollbar thumb color on hover */
+}
+
+.cards-container::-webkit-scrollbar {
+    display: none;
+    /* Hide default scrollbar in WebKit browsers */
 }
 
 /* Your custom CSS styles go here */

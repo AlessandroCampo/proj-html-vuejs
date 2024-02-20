@@ -2,11 +2,16 @@
     <div class="section-container">
         <h2> {{ propTitle }} </h2>
         <p> {{ propSubTitle }} </p>
-        <div class="cards-container .course-cards-container" v-if="propType === 'Subjects'">
-            <CourseCard v-for="(course, index) in courses" :key="index" :propCard="course"></CourseCard>
+        <div class="cards-container .course-cards-container" v-if="propType === 'courses'" ref="slider">
+            <CourseCard v-for="(course, index) in propArray" :key="index" :propCard="course"></CourseCard>
+
         </div>
-        <div class="cards-container .teacher-cards-container" v-if="propType === 'Teachers'">
-            <TeacherCard v-for="(teacher, index) in teachers" :key="index" :propCard="teacher"></TeacherCard>
+        <div class="cards-container .teacher-cards-container" v-if="propType === 'teachers'" ref="slider">
+            <TeacherCard v-for="(teacher, index) in propArray" :key="index" :propCard="teacher"></TeacherCard>
+        </div>
+        <div class="dots">
+            <i class="fa-solid fa-circle" :class="index === sliderPosition ? '' : 'opacity-40'"
+                v-for=" (count, index) in (Math.floor(propArray.length / 3))" :data-page="index" @click="scroll(index)"></i>
         </div>
     </div>
 </template>
@@ -19,61 +24,30 @@ import TeacherCard from '../t2/TeacherCard.vue'
 export default {
     data() {
         return {
-            courses: [
-                {
-                    title: 'Learn Spanish',
-                    teacher: 'Jennie King',
-                    description: 'Immerse yourself in the vibrant world of Spanish language and culture with Jennie King as your guide. Whether you’re a beginner or seeking to refine your skills, this course offers comprehensive lessons covering grammar, vocabulary, and conversation. Explore the richness of Spanish literature and enhance your fluency through engaging activities and authentic materials.',
-                    registered_students: Math.floor(Math.random() * 20),
-                    subject: 'LANGUAGES',
-                    price: '20$',
-                    imgPath: './src/assets/img/courses/learn_spanish.jpg'
-                },
-                {
-                    title: 'Business English',
-                    teacher: 'Preston Marshall',
-                    description: 'Gain a competitive edge in the global business arena with Preston Marshall’s Business English course. Master professional communication skills, including writing effective emails, conducting successful meetings, and delivering impactful presentations. Dive into case studies and real-world scenarios to sharpen your business acumen and excel in today’s corporate environment.',
-                    registered_students: Math.floor(Math.random() * 20),
-                    subject: 'LANGUAGES',
-                    price: '20$',
-                    imgPath: './src/assets/img/courses/business_english.jpg'
-                },
-                {
-                    title: 'Social Computing',
-                    teacher: 'David Sanders',
-                    description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-                    registered_students: Math.floor(Math.random() * 20),
-                    subject: 'PROGRAMMING',
-                    price: 'FREE',
-                    imgPath: './src/assets/img/courses/social_computing.jpg'
-                }
-            ],
-            teachers: [
-                {
-                    full_name: 'Brenda Harris',
-                    role: 'TEACHER',
-                    description: 'With a passion for language and a flair for engaging instruction, Brenda Harris brings her expertise in linguistics to the classroom. Her dynamic teaching style fosters a supportive learning environment where students thrive and develop their language skills with confidence.',
-                    imgPath: './src/assets/img/teachers/brenda_harris.jpg'
-                },
-                {
-                    full_name: 'Lisa Griffin',
-                    role: 'TEACHER',
-                    description: 'Lisa Griffin is a dedicated educator with a knack for making complex concepts accessible to all learners. Through her innovative teaching methods and personalized approach, she empowers students to reach their full potential and succeed in their academic endeavors.',
-                    imgPath: './src/assets/img/teachers/lisa_griffing.jpg'
-                },
-                {
-                    full_name: 'Victor Green',
-                    role: 'TEACHER',
-                    description: 'Victor Green is a visionary educator committed to inspiring the next generation of leaders in technology. With his deep expertise in programming and a passion for teaching, he equips students with the skills and knowledge to excel in the fast-paced world of software development.',
-                    imgPath: './src/assets/img/teachers/victor_green.jpg'
-                }
-            ]
+
+            sliderPosition: 0
 
 
         }
     },
     components: { CourseCard, TeacherCard },
-    props: ['propTitle', 'propSubTitle', 'propType']
+    props: ['propTitle', 'propSubTitle', 'propType', 'propArray'],
+    methods: {
+        scroll(index) {
+            const slider = this.$refs.slider;
+            let amount = slider.offsetWidth;
+
+            if (index < this.sliderPosition) {
+                amount *= -1;
+            }
+            this.sliderPosition = index
+            slider.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+
+        }
+    }
 }
 </script>
 
@@ -91,6 +65,12 @@ export default {
 }
 
 .cards-container {
-    @apply flex mt-16 gap-6
+    @apply flex mt-16 gap-6 overflow-x-scroll
+}
+
+
+
+.dots {
+    @apply flex items-center gap-3 justify-center text-[var(--theme-blue)] text-sm mt-6 cursor-pointer
 }
 </style>
