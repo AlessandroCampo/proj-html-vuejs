@@ -10,16 +10,23 @@
             <p>
                 {{ pageContent[slider_position - 1].sub_title }}
             </p>
-            <button v-if="pageContent[slider_position - 1].button_content === 'register'" class="button">Register
-                now</button>
-            <button v-if="pageContent[slider_position - 1].button_content === 'play'" class="play-pause">
-                <i class="fa-solid fa-circle-play"></i>
-            </button>
+            <div class="button-cont">
+                <button v-if="pageContent[slider_position - 1].button_content === 'register'" class="button">Register
+                    now</button>
+                <button v-if="pageContent[slider_position - 1].button_content === 'play'" class="play-pause">
+                    <i class="fa-solid fa-circle-play"></i>
+                </button>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script>
+
+import { gsap } from "gsap";
+
+
 export default {
     data() {
         return {
@@ -49,6 +56,7 @@ export default {
         slide(direction) {
             // reset the interavl to avoid double slide
             clearInterval(this.autoSlide)
+            this.smoothEntry()
             this.autoSlide = setInterval(() => { this.slide('right') }, 4000)
             direction === 'left' ? this.slider_position-- : this.slider_position++
             // handle exeeding number
@@ -58,11 +66,38 @@ export default {
                 this.slider_position = 1
             }
 
+
         },
+        smoothEntry() {
+            const title = document.querySelector('.slider-container h1');
+            const p = document.querySelector('.slider-container p');
+            const buttons = document.querySelectorAll('.button-cont');
+
+
+            const animatedElements = [title, p, ...buttons];
+
+            animatedElements.forEach((el) => {
+                gsap.set(el, { opacity: 0, y: 50 })
+            });
+
+            animatedElements.forEach((el, index) => {
+                gsap.to(el, {
+                    opacity: 1,
+                    duration: 0.8,
+                    y: 0, // Use 'y' instead of 'translateY' for GSAP
+                    delay: index * 0.3
+                });
+            });
+        }
+
+
 
     },
     mounted() {
-
+        this.smoothEntry()
+        // this.$nextTick(() => {
+        //     this.smoothEntry();
+        // });
     }
 }
 </script>
@@ -90,12 +125,18 @@ i.fa-chevron-left {
 }
 
 .text-content h1 {
-    @apply text-7xl font-bold
+    @apply text-7xl font-bold opacity-0
 }
 
 .text-content p {
-    @apply text-xl font-semibold leading-9
+    @apply text-xl font-semibold leading-9 opacity-0
 }
+
+.button-cont {
+    @apply w-full opacity-0
+}
+
+
 
 .play-pause {
     @apply text-7xl
