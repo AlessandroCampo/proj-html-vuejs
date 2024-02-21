@@ -104,11 +104,11 @@ export default {
 
 <style scoped>
 .slider-container {
-    @apply relative h-full flex items-center justify-center bg-cover
+    @apply relative h-full flex items-center justify-center bg-cover bg-center
 }
 
 .slider-container>i {
-    @apply text-white text-6xl absolute top-1/2 translate-y-[-50%] ms-5 cursor-pointer
+    @apply text-white text-2xl lg:text-6xl absolute top-1/2 translate-y-[-50%] ms-5 cursor-pointer
 }
 
 i.fa-chevron-right {
@@ -125,11 +125,11 @@ i.fa-chevron-left {
 }
 
 .text-content h1 {
-    @apply text-7xl font-bold opacity-0
+    @apply text-5xl lg:text-7xl font-bold opacity-0
 }
 
 .text-content p {
-    @apply text-xl font-semibold leading-9 opacity-0
+    @apply text-base lg:text-xl font-semibold leading-9 opacity-0
 }
 
 .button-cont {

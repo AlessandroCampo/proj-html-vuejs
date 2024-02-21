@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 .card {
-    @apply w-[var(--width-oneThird-gap6)] border-2 shrink-0
+    @apply lg:w-[var(--width-oneThird-gap6)] border-2 shrink-0 w-full
 }
 
 .text-info {

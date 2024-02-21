@@ -13,6 +13,10 @@
             <i class="fa-solid fa-circle" :class="index === sliderPosition ? '' : 'opacity-40'"
                 v-for=" (count, index) in (Math.floor(propArray.length / 3))" :data-page="index" @click="scroll(index)"></i>
         </div>
+        <div class="arrows">
+            <i class="fa-solid fa-arrow-left" @click="scrollByOne('left')"></i>
+            <i class="fa-solid fa-arrow-right" @click="scrollByOne('right')"></i>
+        </div>
     </div>
 </template>
 
@@ -46,6 +50,19 @@ export default {
                 behavior: 'smooth'
             });
 
+        },
+        scrollByOne(direction) {
+            const slider = this.$refs.slider;
+            let amount = slider.offsetWidth + 23
+            if (direction === 'left') {
+                amount *= -1;
+            }
+            // this.sliderPosition = index
+            slider.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+
         }
     }
 }
@@ -71,6 +88,10 @@ export default {
 
 
 .dots {
-    @apply flex items-center gap-3 justify-center text-[var(--theme-blue)] text-sm mt-6 cursor-pointer
+    @apply lg:flex items-center gap-3 justify-center text-[var(--theme-blue)] text-sm mt-6 cursor-pointer hidden
+}
+
+.arrows {
+    @apply flex lg:hidden items-center gap-16 justify-center text-lg text-[var(--theme-blue)]
 }
 </style>

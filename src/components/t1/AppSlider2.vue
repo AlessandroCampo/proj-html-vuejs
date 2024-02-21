@@ -98,7 +98,7 @@ export default {
 
 <style scoped>
 .slider-container {
-    @apply h-1/2 bg-cover bg-center pb-36 py-3
+    @apply h-1/2 bg-cover bg-center pb-36 py-24
 }
 
 .cards-container {
@@ -124,7 +124,7 @@ export default {
 }
 
 .testimonial-card p {
-    @apply text-lg font-semibold w-2/3
+    @apply lg:text-lg font-semibold lg:w-2/3 text-base
 }
 
 .testimonial-info .full-name {

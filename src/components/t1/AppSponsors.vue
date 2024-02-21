@@ -14,7 +14,7 @@ export default {
 <style 
  scoped>
  div.sponsor-container {
-     @apply w-3/4 flex gap-4 mx-auto
+     @apply w-3/4 flex gap-4 mx-auto overflow-scroll
  }
 
  div.sponsor-container img:hover {

@@ -16,6 +16,7 @@
 
             </ul>
         </nav>
+        <i class="fa-solid fa-bars mobile-menu"></i>
     </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
 }
 
 .header-container img {
-    @apply w-[12%]
+    @apply w-[140px]
 }
 
 .header-container .icon-container {
@@ -49,5 +50,13 @@ export default {
 
 .cart {
     @apply relative
+}
+
+nav {
+    @apply hidden lg:flex
+}
+
+.mobile-menu {
+    @apply block lg:hidden text-2xl
 }
 </style>

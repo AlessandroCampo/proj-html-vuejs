@@ -8,7 +8,10 @@
       <p> {{ sub }}</p>
     </div>
   </section>
-  <TextImgSection v-for="(section, index) in textImgSections" :key="index" :propsSection="section"></TextImgSection>
+  <section>
+    <TextImgSection v-for="(section, index) in textImgSections" :key="index" :propsSection="section"></TextImgSection>
+  </section>
+
   <AppSlider2></AppSlider2>
   <section class="info-menu">
     <TabsMenuSection :propsMenuVoices="menuInfoVoices"></TabsMenuSection>
@@ -26,7 +29,7 @@
     </TitleParagraphCards>
   </section>
   <section class="plans">
-    <h2> Priciping Plans </h2>
+    <h2> Pricing Plans </h2>
     <p> Find the plan that suits your needs the best</p>
     <PricingTable :propArray="pricing_plans"></PricingTable>
   </section>
@@ -249,33 +252,32 @@ export default {
         },
         {
           name: 'Professional',
-          price: 12,
+          price: 59,
           iconPath: './src/assets/img/tabs-icons/plan_professional_icon.png',
           menu_voices: {
-            'Number of Courses': 2,
-            'Time': '15 Days',
+            'Number of Courses': 4,
+            'Time': '30 Days',
             'Web Designing': true,
             'Human-Centered Design': true,
-            'Basic Marketing': false,
-            'Python for Everybody': false,
+            'Basic Marketing': true,
+            'Python for Everybody': true,
             'Android Developer': false,
             'Business English': false
           }
         },
         {
           name: 'Advanced',
-          price: 12,
+          price: 88,
           iconPath: './src/assets/img/tabs-icons/plan_advanced_icon.png',
-          number_of_courses: 2,
           menu_voices: {
-            'Number of Courses': 2,
-            'Time': '15 Days',
+            'Number of Courses': 6,
+            'Time': '30 Days',
             'Web Designing': true,
             'Human-Centered Design': true,
-            'Basic Marketing': false,
-            'Python for Everybody': false,
-            'Android Developer': false,
-            'Business English': false
+            'Basic Marketing': true,
+            'Python for Everybody': true,
+            'Android Developer': true,
+            'Business English': true
           }
         }
       ],
@@ -323,17 +325,18 @@ export default {
         this.showStickyEls = false
       }
     })
-  }
+  },
+
 }
 </script>
 
 <style scoped>
 .subj-container {
-  @apply w-3/4 mx-auto flex text-2xl text-gray-800 gap-6
+  @apply w-3/4 mx-auto flex text-2xl text-gray-800 gap-6 flex-wrap lg:flex-nowrap justify-center
 }
 
 .subj-card {
-  @apply flex flex-col gap-4 w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer
+  @apply flex flex-col gap-4 lg:w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer w-3/4
 }
 
 .subj-card:hover img {
@@ -346,6 +349,10 @@ export default {
 
 section {
   @apply py-[var(--section-distance)]
+}
+
+.card-list {
+  @apply mb-24
 }
 
 .sticky-up {

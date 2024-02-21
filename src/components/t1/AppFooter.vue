@@ -52,7 +52,7 @@
             </div>
 
             <div class="footer-element">
-                <H2> Support </H2>
+                <h2> Support </h2>
                 <ul class="support-list">
                     <li>
                         User dashboard
@@ -103,15 +103,15 @@ export default {
 
 <style  scoped>
 .footer-container {
-    @apply w-3/4 mx-auto pt-36 pb-12
+    @apply w-3/4 mx-auto pt-24 pb-12
 }
 
 .footer-upper {
-    @apply flex text-white justify-between gap-4 pb-24
+    @apply lg:flex flex-col text-white justify-between gap-4 pb-24
 }
 
 .footer-element {
-    @apply w-1/4 flex flex-col gap-6
+    @apply lg:w-1/4 w-full flex flex-col gap-6 mt-12
 }
 
 .footer-element h2 {

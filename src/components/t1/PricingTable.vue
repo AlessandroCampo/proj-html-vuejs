@@ -14,9 +14,9 @@
             <tr v-for="(value, key, index) in propArray[0].menu_voices" :key="index">
                 <td>{{ key }}</td>
                 <td v-for="(plan, index) in propArray" :key="index">
-                    <i v-if="typeof value === 'boolean'" class="fa-solid"
-                        :class="value ? 'fa-check text-[var(--theme-blue)]' : 'fa-xmark text-red-400'"></i>
-                    <span v-else> {{ value }} </span>
+                    <i v-if="typeof plan.menu_voices[key] === 'boolean'" class="fa-solid"
+                        :class="plan.menu_voices[key] ? 'fa-check text-[var(--theme-blue)]' : 'fa-xmark text-red-400'"></i>
+                    <span v-else> {{ plan.menu_voices[key] }} </span>
                 </td>
             </tr>
             <tr>
@@ -28,6 +28,23 @@
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div class="mobile-pricing-container">
+        <div class="mobile-plan" v-for="(plan, index) in propArray " :key="index">
+            <img :src="plan.iconPath" alt="">
+            <div class="info">
+                <div>{{ plan.name }}</div>
+                <div>{{ plan.price }} $ </div>
+            </div>
+
+            <div v-for="(voice, key, index) in plan.menu_voices" class="mobile-voice-list">
+                <span> {{ key }} :</span> <i v-if="typeof plan.menu_voices[key] === 'boolean'" class="fa-solid"
+                    :class="plan.menu_voices[key] ? 'fa-check text-[var(--theme-blue)]' : 'fa-xmark text-red-400'"></i>
+                <span v-else> {{ plan.menu_voices[key] }} </span>
+            </div>
+
+        </div>
     </div>
 </template>
 
@@ -44,7 +61,7 @@ export default {
 
 <style scoped>
 .table-container {
-    @apply mt-12 w-3/4 mx-auto px-6
+    @apply mt-12 w-3/4 mx-auto px-6 hidden lg:block
 }
 
 .table-container table {
@@ -97,5 +114,29 @@ th {
 
 th.active {
     @apply border-t-4 border-t-[var(--theme-blue)]
+}
+
+.mobile-plan {
+    @apply lg:hidden flex flex-col items-center my-12
+}
+
+.mobile-plan .info {
+    @apply text-gray-900 font-bold flex flex-col items-center gap-1 mb-7
+}
+
+.mobile-plan .info div:first-child {
+    @apply text-2xl
+}
+
+.mobile-plan .info div:nth-child(2) {
+    @apply text-xl
+}
+
+.mobile-plan .mobile-voice-list {
+    @apply text-xl
+}
+
+.mobile-voice-list {
+    @apply my-2 flex items-center gap-3
 }
 </style>

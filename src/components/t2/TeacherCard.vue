@@ -27,11 +27,11 @@ export default {
 
 <style scoped>
 .card {
-    @apply flex flex-col gap-3 items-center px-6 w-[var(--width-oneThird-gap6)] shrink-0
+    @apply flex flex-col gap-3 items-center px-6 lg:w-[var(--width-oneThird-gap6)] w-full shrink-0
 }
 
 .card img {
-    @apply w-1/3
+    @apply w-[150px]
 }
 
 .card h3 {

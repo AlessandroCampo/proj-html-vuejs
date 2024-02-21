@@ -6,6 +6,7 @@
                 <li v-for="(voice, index) in propArray" :key="index"> {{ voice }}</li>
             </ul>
         </nav>
+        <i class="fa-solid fa-bars mobile-menu"></i>
     </div>
 </template>
 
@@ -57,6 +58,14 @@ export default {
 }
 
 .header-container img {
-    @apply w-[12%]
+    @apply w-[140px]
+}
+
+.header-container nav {
+    @apply hidden lg:block
+}
+
+.mobile-menu {
+    @apply lg:hidden text-xl
 }
 </style>

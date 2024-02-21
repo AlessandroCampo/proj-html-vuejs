@@ -1,5 +1,5 @@
 <template>
-    <div class="text-img-container" :class="propsSection.imgOnRight ? '' : 'flex-row-reverse'">
+    <div class="text-img-container flex flex-col lg:flex-row" :class="{ 'lg:flex-row-reverse': !propsSection.imgOnRight }">
         <div class="section-text ">
             <h2>
                 {{ propsSection.title }}
@@ -30,15 +30,15 @@ export default {
 
 <style  scoped>
 .text-img-container {
-    @apply w-3/4 mx-auto flex items-center justify-center
+    @apply w-3/4 mx-auto flex items-center justify-center mb-28
 }
 
 .text-img-container .section-text {
-    @apply w-2/5
+    @apply lg:w-2/5
 }
 
 .text-img-container .section-img {
-    @apply w-3/6
+    @apply lg:w-3/6 w-3/4
 }
 
 .section-text {
@@ -50,7 +50,7 @@ export default {
 }
 
 .section-text h2 {
-    @apply text-4xl font-bold w-3/4
+    @apply lg:text-4xl font-bold lg:w-3/4 text-2xl
 }
 
 .section-text>div {
@@ -58,6 +58,6 @@ export default {
 }
 
 .section-img>img {
-    @apply w-full
+    @apply w-full mt-12 lg:mt-0
 }
 </style>

@@ -42,11 +42,11 @@ export default {
 
 <style scoped>
 .menu-container {
-    @apply mx-auto w-2/3 text-gray-500 flex gap-10 py-12
+    @apply mx-auto w-2/3 text-gray-500 flex gap-10 py-12 flex-col lg:flex-row
 }
 
 .menu-container>ul {
-    @apply border-b-2 border-gray-200 w-1/4
+    @apply border-b-2 border-gray-200 lg:w-1/4 w-full
 }
 
 .menu-container>ul li {
@@ -70,7 +70,7 @@ export default {
 }
 
 .menu-container h2 {
-    @apply text-4xl font-semibold text-gray-700
+    @apply lg:text-4xl font-semibold text-gray-700 text-2xl
 }
 
 .fa-check {
@@ -78,11 +78,11 @@ export default {
 }
 
 .menu-info {
-    @apply w-4/6 flex flex-col gap-8 px-8 text-lg text-gray-500 py-6 max-h-96
+    @apply lg:w-4/6 w-full flex flex-col gap-8 lg:px-8 px-2 text-lg text-gray-500 py-6 max-h-96
 }
 
 .menu-info-bottom {
-    @apply flex gap-12 justify-between
+    @apply flex gap-12 justify-between flex-col lg:flex-row
 }
 
 .menu-info-bottom ul {
@@ -90,6 +90,6 @@ export default {
 }
 
 .menu-info-bottom img {
-    @apply h-3/4 translate-y-16
+    @apply lg:w-1/4 lg:translate-y-16 w-2/3 mx-auto
 }
 </style>
