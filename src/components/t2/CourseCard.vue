@@ -5,7 +5,7 @@
             <div class="card-up">
                 <div class="card-titles">
                     <h2>
-                        {{ propCard.title }}
+                        {{ propCard.name }}
                     </h2>
                     <div class="name">
                         {{ propCard.teacher }}

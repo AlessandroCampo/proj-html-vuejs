@@ -3,7 +3,15 @@
         <img src="../../assets/img/logo-light.png" alt="">
         <nav>
             <ul>
-                <li v-for="(voice, index) in propArray" :key=index> {{ voice }}</li>
+                <li v-for="(voice, index) in propArray" :key=index @mouseover="showDropdown(voice)"
+                    @mouseleave="hideDropdown(voice)"> {{ voice }}
+                    <DropdownMenu class="COURSES dropdown" v-if="voice === 'COURSES'" :propArray="store.courses">
+                    </DropdownMenu>
+                    <DropdownMenu class="INSTRUCTORS dropdown" v-if="voice === 'INSTRUCTORS'" :propArray="store.teachers">
+                    </DropdownMenu>
+                    <DropdownMenu class="PAGES dropdown" v-if="voice === 'PAGES'" :propArray="store.pages">
+                    </DropdownMenu>
+                </li>
                 <li>
                     <div class="icon-container">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -15,19 +23,46 @@
                 </li>
 
             </ul>
+
+
+
         </nav>
         <i class="fa-solid fa-bars mobile-menu"></i>
+
     </div>
 </template>
 
 <script>
+
+import DropdownMenu from '../t2/DropdownMenu.vue'
+import { store } from '../../store'
+
+
 export default {
     data() {
         return {
+            store,
             cart_items: 0
         }
     },
-    props: ['propArray']
+    props: ['propArray'],
+    components: { DropdownMenu },
+    methods: {
+        showDropdown(voice) {
+            let dropdown = document.querySelector(`.${voice}`)
+            if (dropdown) {
+                dropdown.style.display = "block"
+            }
+
+        },
+        hideDropdown(voice) {
+            let dropdown = document.querySelector(`.${voice}`)
+            if (dropdown) {
+                dropdown.style.display = "none"
+            }
+
+        }
+    }
 }
 </script>
 
@@ -54,6 +89,14 @@ export default {
 
 nav {
     @apply hidden xl:flex cursor-pointer
+}
+
+.dropdown {
+    @apply hidden font-semibold capitalize
+}
+
+li {
+    @apply h-[50px] flex items-center
 }
 
 .mobile-menu {

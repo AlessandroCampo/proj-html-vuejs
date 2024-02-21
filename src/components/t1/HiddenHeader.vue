@@ -3,7 +3,18 @@
         <img src="../../assets/img/logo-colored.png" alt="">
         <nav>
             <ul>
-                <li v-for="(voice, index) in propArray" :key="index"> {{ voice }}</li>
+                <li v-for="(voice, index) in propArray" :key="index" @mouseover="showDropdown(voice)"
+                    @mouseleave="hideDropdown(voice)"> {{ voice }}
+                    <DropdownMenu class="hidden-COURSES hidden-dropdown" v-if="voice === 'COURSES'"
+                        :propArray="store.courses">
+                    </DropdownMenu>
+                    <DropdownMenu class="hidden-INSTRUCTORS hidden-dropdown" v-if="voice === 'INSTRUCTORS'"
+                        :propArray="store.teachers">
+                    </DropdownMenu>
+                    <DropdownMenu class="hidden-PAGES hidden-dropdown" v-if="voice === 'PAGES'" :propArray="store.pages">
+                    </DropdownMenu>
+
+                </li>
             </ul>
         </nav>
         <i class="fa-solid fa-bars mobile-menu"></i>
@@ -13,8 +24,19 @@
 <script>
 
 import gsap from 'gsap'
+import DropdownMenu from '../t2/DropdownMenu.vue'
+import { store } from '../../store'
+
+
+
 export default {
+    data() {
+        return {
+            store
+        }
+    },
     props: ['propArray', 'show'],
+    components: { DropdownMenu },
     watch: {
         show(newVal, oldVal) {
             if (newVal) {
@@ -30,9 +52,27 @@ export default {
     methods: {
         animateHeader(amount) {
             let hidden_header = document.getElementById('hidden_header');
+            amount === 80 ? hidden_header.style.overflow = "visible" : hidden_header.style.overflow = "hidden"
             gsap.to(hidden_header, {
                 height: amount
             });
+        },
+        showDropdown(voice) {
+
+            let dropdown = document.querySelector(`.hidden-${voice}`)
+
+            if (dropdown) {
+                dropdown.style.display = "block"
+            }
+            console.log(dropdown)
+
+        },
+        hideDropdown(voice) {
+            let dropdown = document.querySelector(`.hidden-${voice}`)
+            if (dropdown) {
+                dropdown.style.display = "none"
+            }
+
         }
     }
 
@@ -67,5 +107,17 @@ export default {
 
 .mobile-menu {
     @apply lg:hidden text-xl
+}
+
+.hidden-dropdown {
+    @apply hidden font-semibold capitalize
+}
+
+li {
+    @apply h-[80px] flex items-center
+}
+
+.mobile-menu {
+    @apply block xl:hidden text-2xl cursor-pointer md:text-4xl
 }
 </style>

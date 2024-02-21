@@ -16,15 +16,15 @@
   <section class="info-menu">
     <TabsMenuSection :propsMenuVoices="menuInfoVoices"></TabsMenuSection>
   </section>
-  <section class="cards-list">
+  <section class="cards-list courses">
     <TitleParagraphCards :propTitle="'Popular Online Courses'"
-      :propSubTitle="' Unlock Your Potential: Explore Exciting Learning Opportunities Today!'" :propArray="courses"
+      :propSubTitle="' Unlock Your Potential: Explore Exciting Learning Opportunities Today!'" :propArray="store.courses"
       :propType="'courses'">
     </TitleParagraphCards>
   </section>
-  <section class="card-list">
+  <section class="card-list tutors">
     <TitleParagraphCards :propTitle="'The Best Tutors in Town'"
-      :propSubTitle="'Meet our amazing tutors who will walk you trough this amazing journey '" :propArray="teachers"
+      :propSubTitle="'Meet our amazing tutors who will walk you trough this amazing journey '" :propArray="store.teachers"
       :prop-type="'teachers'">
     </TitleParagraphCards>
   </section>
@@ -42,7 +42,7 @@
 
 
 
-  <div class="sticky-up" v-show="showStickyEls" @click="scrollToTop">
+  <div class="sticky-up" v-show="showStickyEls" @click="store.scrollToTop">
     <i class="fa-solid fa-chevron-up"></i>
     <span> TOP </span>
   </div>
@@ -60,6 +60,7 @@ import TitleParagraphCards from './components/t1/TitleParagraphCards.vue'
 import PricingTable from './components/t1/PricingTable.vue'
 import AppSponsors from './components/t1/AppSponsors.vue'
 import AppFooter from './components/t1/AppFooter.vue'
+import { store } from './store.js'
 
 
 
@@ -67,6 +68,7 @@ import AppFooter from './components/t1/AppFooter.vue'
 export default {
   data() {
     return {
+      store,
       menu_voices: ['HOME', 'COURSES', 'INSTRUCTORS', 'EVENTS', 'PAGES', 'ELEMENTS'],
       subjects: ["Languages", "Software", "Business", "Chemistry", "Science", "DIY&Craft"],
       textImgSections: [
@@ -128,109 +130,6 @@ export default {
           text: 'Knowledge is power, and we\'re here to empower you with the knowledge you need to succeed. Our courses cover a wide range of topics, from business and technology to arts and humanities. Start learning today and take control of your future!',
           checkList: ['Expand your knowledge and skill set.', 'Stay updated with the latest trends and developments.', 'Access resources and tools to support your learning journey.', 'Join a global community of passionate learners.'],
           iconPath: './src/assets/img/tabs-icons/h12-tabs-icon-6.png'
-        }
-      ],
-      courses: [
-        {
-          title: 'Learn Spanish',
-          teacher: 'Jennie King',
-          description: 'Immerse yourself in the vibrant world of Spanish language and culture with Jennie King as your guide. Whether you’re a beginner or seeking to refine your skills, this course offers comprehensive lessons covering grammar, vocabulary, and conversation. Explore the richness of Spanish literature and enhance your fluency through engaging activities and authentic materials.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'LANGUAGES',
-          price: '20$',
-          imgPath: './src/assets/img/courses/learn_spanish.jpg'
-        },
-        {
-          title: 'Business English',
-          teacher: 'Preston Marshall',
-          description: 'Gain a competitive edge in the global business arena with Preston Marshall’s Business English course. Master professional communication skills, including writing effective emails, conducting successful meetings, and delivering impactful presentations. Dive into case studies and real-world scenarios to sharpen your business acumen and excel in today’s corporate environment.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'LANGUAGES',
-          price: '20$',
-          imgPath: './src/assets/img/courses/business_english.jpg'
-        },
-        {
-          title: 'Social Computing',
-          teacher: 'David Sanders',
-          description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'PROGRAMMING',
-          price: 'FREE',
-          imgPath: './src/assets/img/courses/social_computing.jpg'
-        },
-        {
-          title: 'Social Computing',
-          teacher: 'David Sanders',
-          description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'PROGRAMMING',
-          price: 'FREE',
-          imgPath: './src/assets/img/courses/social_computing.jpg'
-        },
-        {
-          title: 'Android Developer',
-          teacher: 'David Sanders',
-          description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'PROGRAMMING',
-          price: 'FREE',
-          imgPath: './src/assets/img/courses/android_developer.jpg'
-        },
-        {
-          title: 'Web Design',
-          teacher: 'Jennifer Powell',
-          description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'PROGRAMMING',
-          price: 'FREE',
-          imgPath: './src/assets/img/courses/web_design.jpg'
-        },
-        {
-          title: 'Basic Marketing',
-          teacher: 'Edward Bowman',
-          description: 'Explore the dynamic intersection of technology and society with David Sanders in Social Computing. Investigate how digital platforms shape human behavior, influence decision-making processes, and impact social relationships. Analyze case studies and emerging trends to develop critical insights into the evolving landscape of online communities and digital culture.',
-          registered_students: Math.floor(Math.random() * 20),
-          subject: 'BUSINESS',
-          price: '40$',
-          imgPath: './src/assets/img/courses/basic_marketing.jpg'
-        }
-      ],
-      teachers: [
-        {
-          full_name: 'Brenda Harris',
-          role: 'TEACHER',
-          description: 'With a passion for language and a flair for engaging instruction, Brenda Harris brings her expertise in linguistics to the classroom. Her dynamic teaching style fosters a supportive learning environment where students thrive and develop their language skills with confidence.',
-          imgPath: './src/assets/img/teachers/brenda_harris.jpg'
-        },
-        {
-          full_name: 'Lisa Griffin',
-          role: 'TEACHER',
-          description: 'Lisa Griffin is a dedicated educator with a knack for making complex concepts accessible to all learners. Through her innovative teaching methods and personalized approach, she empowers students to reach their full potential and succeed in their academic endeavors.',
-          imgPath: './src/assets/img/teachers/lisa_griffing.jpg'
-        },
-        {
-          full_name: 'Victor Green',
-          role: 'TEACHER',
-          description: 'Victor Green is a visionary educator committed to inspiring the next generation of leaders in technology. With his deep expertise in programming and a passion for teaching, he equips students with the skills and knowledge to excel in the fast-paced world of software development.',
-          imgPath: './src/assets/img/teachers/victor_green.jpg'
-        },
-        {
-          full_name: 'Alessio Crea',
-          role: 'TUTOR',
-          description: 'Alessio brings years of work experience on the table. Loved by his students for his joyful attitude, he will help you improve your critical approach to problems. Just a tip: never answer his questions with another question',
-          imgPath: './src/assets/img/teachers/alessio_crea.jpg'
-        },
-        {
-          full_name: 'Riccardo Scrizzi',
-          role: 'TUTOR',
-          description: 'Legends tell that he started programming when he was 2 years old. He has an unique ability of conveying his passion for coding to his students',
-          imgPath: './src/assets/img/teachers/riccardo_hyur.jpg'
-        },
-        {
-          full_name: 'Marta Seminara',
-          role: 'Carreer Advisor',
-          description: 'If you dont find her at the desk working, shes probably taking the 12th tomato pause of the day.She is the best at guding students towards the right path towards their dream job',
-          imgPath: './src/assets/img/teachers/marta_seminara.jpg'
         }
       ],
       pricing_plans: [
@@ -309,14 +208,10 @@ export default {
   },
   components: { AppHeader, AppSlider, TextImgSection, AppSlider2, TabsMenuSection, TitleParagraphCards, PricingTable, AppSponsors, AppFooter, HiddenHeader },
   methods: {
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+
   },
   mounted() {
+    console.log(store)
     window.addEventListener('scroll', () => {
       const amount = 600
       if (window.scrollY > amount) {
@@ -332,11 +227,11 @@ export default {
 
 <style scoped>
 .subj-container {
-  @apply w-3/4 mx-auto flex text-2xl text-gray-800 gap-6 flex-wrap lg:flex-nowrap justify-center
+  @apply w-3/4 mx-auto flex text-2xl text-gray-800 gap-6 flex-wrap xl:flex-nowrap justify-center
 }
 
 .subj-card {
-  @apply flex flex-col gap-4 lg:w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer w-3/4 md:w-[var(--width-oneThird-gap8)]
+  @apply flex flex-col gap-4 xl:w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer w-3/4 md:w-[var(--width-oneThird-gap8)]
 }
 
 .subj-card:hover img {

@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <img :src="propCard.imgPath" alt="">
-        <h3> {{ propCard.full_name }} </h3>
+        <h3> {{ propCard.name }} </h3>
         <span class="role"> {{ propCard.role }} </span>
         <p>
             {{ propCard.description }}
@@ -48,5 +48,9 @@ export default {
 
 .card .socials {
     @apply text-sm text-gray-400 flex gap-3 mt-5
+}
+
+.card .socials i:hover {
+    @apply transition-all duration-500 text-[var(--theme-blue)] cursor-pointer
 }
 </style>
