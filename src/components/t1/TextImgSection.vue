@@ -8,8 +8,11 @@
                 {{ propsSection.paragraph }}
             </p>
 
-            <div>
+            <div v-if="!propsSection.cheat">
                 {{ propsSection.bottomText }}
+            </div>
+            <div v-else>
+                <img :src="propsSection.bottomText" alt="">
             </div>
         </div>
         <div class="section-img">
@@ -59,5 +62,9 @@ export default {
 
 .section-img>img {
     @apply w-full mt-12 lg:mt-0
+}
+
+div.text-big {
+    @apply text-2xl
 }
 </style>

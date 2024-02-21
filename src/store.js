@@ -37,6 +37,7 @@ export const store = reactive({
             price: 'FREE',
             imgPath: './src/assets/img/courses/social_computing.jpg',
             router_link: '/course',
+            teacherImg: './src/assets/img/teachers/david_sanders.jpg',
 
         },
         {
@@ -101,7 +102,7 @@ export const store = reactive({
         // {
         //     name: 'Alessio Crea',
         //     role: 'TUTOR',
-        //     description: 'Alessio brings years of work experience on the table. Loved by his students for his joyful attitude, he will help you improve your critical approach to problems. Just a tip: never answer his questions with another question',
+        //     description: 'Alessio brings years of work experience on the table. He will help you improve your critical approach to problems. Just a tip: never answer his questions with another question',
         //     imgPath: './src/assets/img/teachers/alessio_crea.jpg',
         //     router_link: '/teacher',
         // },
@@ -122,21 +123,22 @@ export const store = reactive({
     ],
     pages: [
         {
-            name: 'About',
-            href: 'footer'
-        },
-        {
-            name: 'Pricing Plan',
-            href: '.plans'
+            name: 'Courses',
+            href: 'section.courses'
         },
         {
             name: 'Instructors',
             href: 'section.tutors'
         },
+
         {
-            name: 'Courses',
-            href: 'section.courses'
-        }
+            name: 'Pricing Plan',
+            href: '.plans'
+        },
+        {
+            name: 'About',
+            href: 'footer'
+        },
     ],
     menu_voices: ['HOME', 'COURSES', 'INSTRUCTORS', 'EVENTS', 'PAGES', 'ELEMENTS'],
     scrollToTop() {

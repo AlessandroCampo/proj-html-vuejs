@@ -54,6 +54,10 @@ export default {
     @apply lg:w-[var(--width-oneThird-gap6)] border-2 shrink-0 w-full
 }
 
+.card:hover {
+    @apply transition-all duration-500 brightness-75 cursor-pointer scale-105 translate-y-[-20px]
+}
+
 .text-info {
     @apply flex flex-col items-start gap-5 text-start p-5
 }

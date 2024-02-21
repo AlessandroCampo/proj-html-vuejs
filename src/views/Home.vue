@@ -39,13 +39,6 @@
     <footer>
         <AppFooter></AppFooter>
     </footer>
-
-
-
-    <div class="sticky-up" v-show="showStickyEls" @click="store.scrollToTop">
-        <i class="fa-solid fa-chevron-up"></i>
-        <span> TOP </span>
-    </div>
 </template>
   
 <script>
@@ -73,19 +66,21 @@ export default {
             textImgSections: [
                 {
                     title: "The Trusted Name for In-Home Tutoring.",
-                    paragraph: "Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id eis sed odio sit amet nibh vulputate cursus mauris.",
+                    paragraph: "At OurTutor, we believe in the power of personalized learning. Our expert tutors work closely with students in the comfort of their own homes to provide tailored support and guidance. Whether your child needs help with homework, exam preparation, or skill development, we're here to help them succeed.",
                     bottomText: "LEARN MORE",
                     imgPath: './src/assets/img/h5-img-1.jpg',
                     imgOnRight: true
                 },
                 {
                     title: "Empowering Children to Reach Their Potential.",
-                    paragraph: "Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id eis sed odio sit amet nibh vulputate cursus mauris.",
-                    bottomText: "168 User Stories 347 Events",
+                    paragraph: "Unlock your child's full potential with OurTutor. Our innovative approach to learning goes beyond traditional tutoring methods to foster curiosity, confidence, and academic success. From personalized lesson plans to engaging activities, we're dedicated to empowering children to thrive academically and beyond.",
+                    bottomText: './src/assets/img/cheat_screen.png',
+                    cheat: true,
                     imgPath: './src/assets/img/h5-img-2.jpg',
                     imgOnRight: false
                 }
-            ],
+            ]
+            ,
             showStickyEls: false,
             menuInfoVoices: [
                 {
@@ -249,9 +244,6 @@ section {
     @apply mb-24
 }
 
-.sticky-up {
-    @apply text-white bg-[var(--theme-blue)] flex flex-col fixed w-[50px] h-[50px] items-center justify-center font-bold bottom-0 right-0 cursor-pointer
-}
 
 .plans h2 {
     @apply text-center text-gray-800 font-semibold text-4xl

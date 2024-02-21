@@ -9,7 +9,7 @@
         <div class="cards-container .teacher-cards-container" v-if="propType === 'teachers'" ref="slider">
             <TeacherCard v-for="(teacher, index) in propArray" :key="index" :propCard="teacher"></TeacherCard>
         </div>
-        <div class="dots">
+        <div class="dots" v-show="Math.floor(propArray.length / 3) > 1">
             <i class="fa-solid fa-circle" :class="index === sliderPosition ? '' : 'opacity-40'"
                 v-for=" (count, index) in (Math.floor(propArray.length / 3))" :data-page="index" @click="scroll(index)"></i>
         </div>

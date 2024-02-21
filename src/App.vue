@@ -2,6 +2,10 @@
   <AppHeader :propArray="store.menu_voices"></AppHeader>
   <HiddenHeader :propArray="store.menu_voices" :show="showStickyEls"></HiddenHeader>
   <RouterView></RouterView>
+  <div class="sticky-up" v-show="showStickyEls" @click="store.scrollToTop">
+    <i class="fa-solid fa-chevron-up"></i>
+    <span> TOP </span>
+  </div>
 </template>
 
 <script>
@@ -30,4 +34,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.sticky-up {
+  @apply text-white bg-[var(--theme-blue)] flex flex-col fixed w-[50px] h-[50px] items-center justify-center font-bold bottom-0 right-0 cursor-pointer
+}
+</style>

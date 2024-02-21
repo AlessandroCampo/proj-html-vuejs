@@ -24,7 +24,7 @@
 
 <script>
 
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
 
 export default {
@@ -33,23 +33,23 @@ export default {
             slider_position: 3,
             autoSlide: setInterval(() => { this.slide('right') }, 4000),
             pageContent: [
-
                 {
-                    title: "Accellerate Your Career",
-                    sub_title: "Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id eis sed odio sit amet nibh vulputate cursus mauris.",
+                    title: "Accelerate Your Career",
+                    sub_title: "Unlock new opportunities and propel your career forward with our expertly crafted courses. Dive deep into industry-relevant topics and gain the skills employers are looking for.",
                     button_content: "register"
                 },
                 {
                     title: "Premium Education",
-                    sub_title: "Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id eis sed odio sit amet nibh vulputate cursus mauris.",
+                    sub_title: "Experience education like never before with our premium courses. Engage with cutting-edge content, personalized learning experiences, and dedicated support from industry professionals.",
                     button_content: "play"
                 },
                 {
                     title: "Contemporary Ideas",
-                    sub_title: "Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat ipsutis sem nibh id eis sed odio sit amet nibh vulputate cursus mauris.",
+                    sub_title: "Stay ahead of the curve and explore the latest trends and innovations in your field. Join a community of forward-thinkers and transform your ideas into reality.",
                     button_content: "register"
                 },
             ]
+
         }
     },
     methods: {
