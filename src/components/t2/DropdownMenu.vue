@@ -1,11 +1,9 @@
 <template>
     <div class="drop-down-menu">
         <ul>
-            <li v-for="(element, index) in propArray" @click="store.scrollToSection(element.href)" :key="index">
-
-                {{ element.name }}
-
-
+            <li v-for="(element, index) in propArray" @click="store.scrollToSection(element.href, index)" :key="index">
+                <router-link :to="element.router_link" v-if="element.router_link">{{ element.name }}</router-link>
+                <span v-else> {{ element.name }} </span>
             </li>
         </ul>
     </div>

@@ -4,7 +4,9 @@
         <nav>
             <ul>
                 <li v-for="(voice, index) in propArray" :key=index @mouseover="showDropdown(voice)"
-                    @mouseleave="hideDropdown(voice)"> {{ voice }}
+                    @mouseleave="hideDropdown(voice)">
+                    <router-link to="/" v-if="voice === 'HOME'"> {{ voice }}</router-link>
+                    <span v-else> {{ voice }} </span>
                     <DropdownMenu class="COURSES dropdown" v-if="voice === 'COURSES'" :propArray="store.courses">
                     </DropdownMenu>
                     <DropdownMenu class="INSTRUCTORS dropdown" v-if="voice === 'INSTRUCTORS'" :propArray="store.teachers">
