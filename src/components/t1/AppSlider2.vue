@@ -68,7 +68,6 @@ export default {
             clearInterval(this.autoScroll)
             const slider = this.$refs.slider;
             let amount = slider.offsetWidth;
-            // if the user clicks 2 position off current index, double scroll. If user clicks forward, scrolls right and viceversa
             if (index - this.sliderPosition === 2 || index - this.sliderPosition === -2) {
                 amount = amount * 2
             }

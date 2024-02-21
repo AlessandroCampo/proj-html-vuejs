@@ -336,7 +336,7 @@ export default {
 }
 
 .subj-card {
-  @apply flex flex-col gap-4 lg:w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer w-3/4
+  @apply flex flex-col gap-4 lg:w-1/6 items-center bg-slate-200 border-2 border-gray-200 py-6 rounded-xl cursor-pointer w-3/4 md:w-[var(--width-oneThird-gap8)]
 }
 
 .subj-card:hover img {

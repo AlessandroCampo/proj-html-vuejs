@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 .section-container {
-    @apply flex flex-col w-3/4 mx-auto text-center gap-6
+    @apply flex flex-col xl:w-3/4 mx-auto text-center gap-6 w-11/12
 }
 
 .section-container h2 {

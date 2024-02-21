@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .table-container {
-    @apply mt-12 w-3/4 mx-auto px-6 hidden lg:block
+    @apply mt-12 xl:w-3/4 mx-auto px-6 hidden lg:block
 }
 
 .table-container table {

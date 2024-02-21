@@ -107,7 +107,7 @@ export default {
 }
 
 .footer-upper {
-    @apply lg:flex flex-col text-white justify-between gap-4 pb-24
+    @apply flex text-white justify-between gap-4 pb-24
 }
 
 .footer-element {

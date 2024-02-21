@@ -7,7 +7,8 @@
 :root {
     --theme-blue: #40c4ff;
     --section-distance: 3em;
-    --width-oneThird-gap6: calc((100% - 2 * 1.5em) / 3)
+    --width-oneThird-gap6: calc((100% - 2 * 1.5em) / 3);
+    --width-oneThird-gap8: calc((100% - 2 * 2em) / 3)
 }
 
 #app {
@@ -19,7 +20,7 @@
 }
 
 .button {
-    @apply bg-[var(--theme-blue)] px-8 py-4 font-bold uppercase w-[200px] text-base
+    @apply bg-[var(--theme-blue)] px-8 py-4 font-bold uppercase w-[200px] text-base hover:bg-sky-500
 }
 
 .number-icon {
@@ -53,11 +54,16 @@
 }
 
 /* Your custom CSS styles go here */
+body {
+    max-width: 100dvw;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 728px) {}
 
 @media screen and (max-width: 728px) {
 
-    body {
-        max-width: 100dvh;
-        overflow-x: hidden;
+    .footer-upper {
+        flex-direction: column;
     }
 }

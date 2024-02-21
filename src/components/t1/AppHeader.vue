@@ -41,7 +41,7 @@ export default {
 }
 
 .header-container img {
-    @apply w-[140px]
+    @apply w-[150px] cursor-pointer xl:w-[150px] md:w-[250px]
 }
 
 .header-container .icon-container {
@@ -53,10 +53,10 @@ export default {
 }
 
 nav {
-    @apply hidden lg:flex
+    @apply hidden xl:flex cursor-pointer
 }
 
 .mobile-menu {
-    @apply block lg:hidden text-2xl
+    @apply block xl:hidden text-2xl cursor-pointer md:text-4xl
 }
 </style>

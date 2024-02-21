@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .menu-container {
-    @apply mx-auto w-2/3 text-gray-500 flex gap-10 py-12 flex-col lg:flex-row
+    @apply mx-auto xl:w-2/3 text-gray-500 flex gap-10 py-12 flex-col md:flex-row w-full
 }
 
 .menu-container>ul {
@@ -78,7 +78,7 @@ export default {
 }
 
 .menu-info {
-    @apply lg:w-4/6 w-full flex flex-col gap-8 lg:px-8 px-2 text-lg text-gray-500 py-6 max-h-96
+    @apply lg:w-4/6 w-full flex flex-col gap-8 lg:px-8 px-2 text-lg text-gray-500 py-6
 }
 
 .menu-info-bottom {
